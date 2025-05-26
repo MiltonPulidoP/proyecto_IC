@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app/instance  # Persistencia de SQLite
+      - ./frontend/static:/app/frontend/static  # Archivos estáticos
+      - ./frontend/templates:/app/frontend/templates  # Plantillas
+    environment:
+      FLASK_ENV: production  # Modo producción (desactiva debug)
+      SECRET_KEY: "odonto"  # Reemplaza esto!
+      DATABASE_PATH: "/app/backend/instance/usuarios.db"  # Ruta absoluta en el contenedor
+      # Opcional (para logs):
+      LOG_LEVEL: "INFO"

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
-from db import crear_base_de_datos, get_db_connection, validar_usuario, agregar_usuario
+from backend.db import crear_base_de_datos, get_db_connection, validar_usuario, agregar_usuario
 
 # Configuración inicial de la aplicación
 app = Flask(__name__,

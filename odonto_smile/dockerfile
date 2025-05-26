@@ -1,0 +1,25 @@
+# Usamos una imagen ligera de Python
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Instalamos dependencias del sistema para psycopg2 (aunque uses SQLite, es bueno tenerlo)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc python3-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copiamos e instalamos dependencias primero (capa caché)
+COPY backend/requirements.txt . 
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiamos toda la aplicación
+COPY . .
+
+# Variables de entorno (ajusta según necesites)
+ENV FLASK_APP=backend/app.py
+ENV FLASK_ENV=production
+ENV DATABASE_PATH=/app/backend/instance/usuarios.db
+
+# Puerto y comando de ejecución con Gunicorn
+EXPOSE 5000
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "backend.app:app"]
