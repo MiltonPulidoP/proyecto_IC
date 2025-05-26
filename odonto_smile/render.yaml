@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: odonto-smile
+    runtime: python
+    rootDirectory: odonto_smile/backend
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: |
+      ggunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        value: tu_clave_secreta_compleja
+      - key: DATABASE_URL
+        value: sqlite:///backend/usuarios.db

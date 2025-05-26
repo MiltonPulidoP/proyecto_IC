@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión | OdontoSmile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-left">
+      <img src="{{ url_for('static', filename='img/logo.jpeg') }}" alt="OdontoSmile logo" class="login-logo">
+    </section>
+
+    <section class="login-right">
+      <!-- Mostrar mensajes flash -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <h2><strong>Inicio de sesión</strong> al sistema</h2>
+
+      <div class="login-avatar">
+        <img src="{{ url_for('static', filename='img/user.jpg') }}" alt="Avatar de usuario">
+      </div>
+      <form class="login-form" method="POST" action="{{ url_for('login') }}" novalidate>
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            placeholder="ejemplo@odontosmile.com"
+            value="{{ request.form.email if request.form.email }}">
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required
+            placeholder="••••••••">
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" name="remember"> Recordar sesión
+          </label>
+          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+    
+        <button type="submit" class="btn-login">INICIAR SESIÓN</button>
+      </form> 
+
+      <div class="login-links">
+        <p>¿No tienes una cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="login-footer">
+    <div class="footer-column">
+      <p><strong>OdontoSmile - Clínica de odontología</strong></p>
+      <p>Medellín, Colombia<br>
+      Cuidamos tu sonrisa con atención especializada y tecnología avanzada.<br>
+      <span>📍 Visítanos en nuestras sedes y agenda tu cita hoy.</span></p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><img src="{{ url_for('static', filename='img/icons/facebook.jpeg') }}" alt="Facebook"></a>
+        <a href="#" aria-label="Instagram"><img src="{{ url_for('static', filename='img/icons/instagram.jpg') }}" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <p><strong>Enlaces Rápidos</strong></p>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Inicio</a></li>
+        <li><a href="#">Tratamientos</a></li>
+        <li><a href="#">Reseñas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <p><strong>Contacto</strong></p>
+      <address>
+        <p>📍 Dirección: sedes</p>
+        <p>📞 Teléfono: <a href="tel:+123456789">+123 456 789</a></p>
+        <p>✉️ Correo: <a href="mailto:odontosmile@gmail.com">odontosmile@gmail.com</a></p>
+      </address>
+    </div>
+  </footer>
+</body>
+</html>

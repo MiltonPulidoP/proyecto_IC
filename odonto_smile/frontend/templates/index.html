@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OdontoSmile - Clínica Odontológica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>OdontoSmile</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Tratamientos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Bienvenido a OdontoSmile</h1>
+        <p>Donde cuidamos tu sonrisa con atención profesional y tecnología avanzada. Ofrecemos servicios de ortodoncia, valoraciones y más. Gestiona tus días fácilmente a través de nuestra plataforma y recibe la mejor atención para tu salud dental.</p>
+        <p>Agenda tu día con nosotros y déjanos cuidar de tu sonrisa. ¡Tu bienestar dental está en las mejores manos!</p>
+        <img src="{{ url_for('static', filename='img/portada.jpeg') }}" alt="OdontoSmile" class="hero-image">
+        <a href="{{ url_for('login') }}" class="btn">Agendar cita</a>        
+    </section>
+
+    <section class="sedes">
+        <h2>Nuestras Sedes</h2>
+        <div class="sedes-grid">
+            <!-- Sede 1 -->
+            <div class="sede-card">
+                <img src="{{ url_for('static', filename='img/sedes/sede1.jpeg') }}" alt="Sede Bello" class="sede-img">
+                <div class="sede-info">
+                    <h3>Bello, Antioquia</h3>
+                    <p>Nuestra sede principal con equipos de última generación. Amplias instalaciones diseñadas para tu comodidad y equipadas con tecnología dental avanzada.</p>
+                    <ul class="sede-details">
+                        <li><strong>Horario:</strong> Lunes a Viernes 8am - 7pm</li>
+                        <li><strong>Teléfono:</strong> (604) 123 4567</li>
+                        <li><strong>Servicios:</strong> Todos los tratamientos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Sede 2 -->
+            <div class="sede-card">
+                <img src="{{ url_for('static', filename='img/sedes/sede2.jpeg') }}" alt="Sede Poblado" class="sede-img">
+                <div class="sede-info">
+                    <h3>Poblado, Antioquia</h3>
+                    <p>Sede especializada en tratamientos estéticos y ortodoncia. Ambiente moderno y relajante en el corazón de Medellín.</p>
+                    <ul class="sede-details">
+                        <li><strong>Horario:</strong> Lunes a Sábado 9am - 8pm</li>
+                        <li><strong>Teléfono:</strong> (604) 234 5678</li>
+                        <li><strong>Especialidad:</strong> Ortodoncia y Estética</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Sede 3 -->
+            <div class="sede-card">
+                <img src="{{ url_for('static', filename='img/sedes/sede3.jpeg') }}" alt="Sede Laureles" class="sede-img">
+                <div class="sede-info">
+                    <h3>Laureles, Antioquia</h3>
+                    <p>Clínica familiar con enfoque en odontopediatría. Espacio diseñado para que los más pequeños disfruten su visita al dentista.</p>
+                    <ul class="sede-details">
+                        <li><strong>Horario:</strong> Martes a Domingo 10am - 6pm</li>
+                        <li><strong>Teléfono:</strong> (604) 345 6789</li>
+                        <li><strong>Especialidad:</strong> Odontopediatría</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="tratamientos">
+        <h2>Tratamientos Dentales</h2>
+        <div class="tratamientos-grid">
+            <!-- Fila 1 -->
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/ortodoncia.jpeg') }}" alt="Ortodoncia con Brackets" class="tratamiento-img">
+                <h3>Ortodoncia con Brackets</h3>
+                <p>Corrige la alineación de tus dientes con tratamientos personalizados para lograr una sonrisa perfecta. Ofrecemos diferentes tipos de brackets, desde metálicos hasta estéticos, según tus necesidades y preferencias.</p>
+            </div>
+            
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/limpieza.jpeg') }}" alt="Limpieza Dental" class="tratamiento-img">
+                <h3>Limpieza y Profilaxis</h3>
+                <p>Elimina el sarro y la placa bacteriana para mantener tu sonrisa sana y brillante. La limpieza dental periódica previene enfermedades como la gingivitis y la periodontitis.</p>
+            </div>
+            
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/blanquiamiento.jpeg') }}" alt="Blanqueamiento Dental" class="tratamiento-img">
+                <h3>Blanqueamiento Dental</h3>
+                <p>Aclara el tono de tus dientes con nuestros tratamientos de blanqueamiento profesional. Utilizamos técnicas avanzadas para eliminar manchas y devolverle a tu sonrisa su brillo natural.</p>
+            </div>
+    
+            <!-- Fila 2 -->
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/implantes.jpeg') }}" alt="Implantes Dentales" class="tratamiento-img">
+                <h3>Implantes Dentales</h3>
+                <p>Recupera la funcionalidad y estética de tu sonrisa con implantes dentales de alta calidad. Estos reemplazos permanentes imitan la estructura de un diente natural.</p>
+            </div>
+            
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/valoraciones.jpeg') }}" alt="Valoración Odontológica" class="tratamiento-img">
+                <h3>Valoraciones Odontológicas</h3>
+                <p>Realizamos diagnósticos completos para detectar cualquier problema dental a tiempo. Nuestros especialistas te guiarán en el mejor tratamiento para tu salud bucal.</p>
+            </div>
+            
+            <div class="tratamiento-card">
+                <img src="{{ url_for('static', filename='img/tratamientos/invisible.jpeg') }}" alt="Ortodoncia Invisible" class="tratamiento-img">
+                <h3>Ortodoncia Invisible</h3>
+                <p>Disfruta de un tratamiento ortodóntico sin brackets con alineadores transparentes. Son removibles, cómodos y prácticamente imperceptibles.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonio">
+        <h2>Lo que dicen nuestros pacientes</h2>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='img/paciente_portada.jpeg') }}" alt="Paciente" class="responsive-image">
+        </div>
+        <blockquote>"Siempre tuve miedo al dentista, pero aquí la experiencia fue increíble. El personal es amable y muy atento. Volveré sin duda."</blockquote>
+        <p>Laura Pérez</p>
+    </section>
+    
+    <section class="contacto">
+        <h2>Contacto</h2>
+        <p>OdontoSmile Clínica de odontología</p>
+        <p>Bogotá, Colombia</p>
+        <p>Cuidamos tu sonrisa con atención especializada y tecnología avanzada. Visítanos en nuestras sedes y agenda tu día hoy.</p>
+        <div class="telefono">LLÁMANOS: 018000123456</div>
+    </section>
+    
+    <footer>
+        <div class="footer-info">
+            <p>OdontoSmile © 2025 - Todos los derechos reservados</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Edición</a>
+            <a href="#">Tratamientos</a>
+            <a href="#">Reseñas</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Serás redirigido al sistema de agendamiento');
+            window.location.href = "{{ url_for('login') }}";
+        });
+    </script>
+</body>
+</html>
